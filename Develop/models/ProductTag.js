@@ -13,7 +13,14 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true
     },
-
+    // product_id - integer value, references product.id
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'product',
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
