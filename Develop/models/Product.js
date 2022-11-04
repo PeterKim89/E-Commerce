@@ -16,15 +16,24 @@ Product.init(
       primaryKey: true,
       autoIncrement: true
     },
+    // product name - given string value, cannot be null
     product_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
+    // price - given decimal value of up to x,xxx,xxx,xxx.xx , cannot be null and validates whether the value is a decimal
     price: {
       type: DataTypes.DECIMAL(10,2),
       allowNull: false,
       isDecimal: true
-    }
+    },
+    // stock - given integer value, otherwise defaults to 10. cannot be null and validates if value is a number
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      isNumeric: true
+    },
   },
   {
     sequelize,
