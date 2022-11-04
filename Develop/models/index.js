@@ -23,6 +23,12 @@ Product.belongToMany(Tag, {
 });
 
 // Tags belongToMany Products (through ProductTag)
+Tag.belongToMany(Product, {
+  through: {
+    model: ProductTag,
+  },
+  as: 'tag_products'
+});
 
 module.exports = {
   Product,
