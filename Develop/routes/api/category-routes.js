@@ -49,7 +49,7 @@ router.put('/:id', (req, res) => {
   try {
     const categoryData = Category.update({
       where: {
-        id: req.params.id;
+        id: req.params.id,
       }
     });
     res.status(200).json(categoryData);
