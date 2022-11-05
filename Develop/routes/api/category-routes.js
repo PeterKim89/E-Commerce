@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new category
   try {
-    const categoryData = category.create({
+    const categoryData = Category.create({
       category_id: req.body.category_id,
     });
     res.status(200).json(categoryData);
@@ -46,6 +46,17 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
+  try {
+    const categoryData = Category.update({
+      where: {
+        id: req.params.id;
+      }
+    });
+    res.status(200).json(categoryData);
+  }
+  catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 router.delete('/:id', (req, res) => {
